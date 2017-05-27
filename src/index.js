@@ -76,7 +76,7 @@ window.addEventListener('error', function (event) {
     var errorDetails = null
     var stacktrace   = false
 
-    // Generate the error message text from the event.
+    // Different browsers seem to format the message differently so this is trying to make the all the same format.
     if (messageParts.length === 2) {
         const errorType = messageParts[0].split(' ').pop()
         errorText = 'Detected ' + errorType
