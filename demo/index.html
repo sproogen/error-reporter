@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sample App</title>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="node_modules/error-reporter/dist/main.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>{{ title }}</h1>
+    <ul>
+        <li v-for="error in errors">
+            <button v-on:click="error.run">Pick me!</button>
+        </li>
+    </ul>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        title: 'Pick a button, catch a bug',
+        errors: [
+            { run: function() { var obj = undefinedThing; } },
+            { run: function() { var obj = 2; obj.run(); } },
+            { run: function() { eval("foo bar"); } },
+            { run: function() { decodeURIComponent("%"); } },
+            { run: function() { throw new Error("Ohh no!") } }
+        ]
+      }
+    })
+  </script>
+</body>
+</html>

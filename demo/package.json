@@ -1,0 +1,8 @@
+{
+  "name": "error-reporter-demo",
+  "version": "0.0.1",
+  "description": "Demo for error-reporter",
+  "dependencies": {
+    "error-reporter": "file:../"
+  }
+}
