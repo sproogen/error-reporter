@@ -145,11 +145,13 @@ var insertContainer = function insertContainer() {
  * Window event listener to listen for error events
  */
 window.addEventListener('error', function (event) {
+    event.preventDefault();
     var messageParts = event.message.split(': ');
     var errorText = '';
     var errorDetails = null;
     var stacktrace = false;
 
+    // Generate the error message text from the event.
     if (messageParts.length === 2) {
         var errorType = messageParts[0].split(' ').pop();
         errorText = 'Detected ' + errorType;
@@ -159,15 +161,14 @@ window.addEventListener('error', function (event) {
         errorText = 'Detected ' + event.message;
     }
 
+    // Display the error on screen.
     showError(errorText, errorDetails);
 
+    // Log the error out, and if it exists the stacktract.
+    console.log(errorText + ' - ' + errorDetails);
     if (stacktrace) {
         console.log(stacktrace);
-    } else {
-        console.log(errorText);
     }
-
-    event.preventDefault();
 });
 
 /*
