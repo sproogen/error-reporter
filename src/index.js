@@ -89,7 +89,7 @@ window.addEventListener('error', function (event) {
     // Display the error on screen.
     showError(errorText, errorDetails)
 
-    // Log the error out, and if it exists the stacktract.
+    // Log the error out, and if it exists the stacktrace.
     console.log(errorText + ' - ' + errorDetails)
     if (stacktrace) {
         console.log(stacktrace)
