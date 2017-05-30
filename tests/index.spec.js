@@ -43,7 +43,7 @@ describe('Error Reporter', function() {
         expect(document.getElementsByClassName('error').length).toEqual(0)
     })
 
-    // Again for this test the error element is inserted correctly inserted as the expections are passing
+    // Again for this test the error element is inserted correctly as the expections are passing
     // But the test is failing on the error not being caught.
     it('should insert error on Error', function() {
         document.getElementById('error-container').innerHTML = ''
